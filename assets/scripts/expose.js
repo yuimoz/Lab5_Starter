@@ -9,7 +9,7 @@ function init() {
    const volSlider = document.getElementById('volume');
    const volImg = document.querySelector('#volume-controls img');
 
-   // img change 
+   // img changes according to what is picked, same for audio 
    selectHorn.addEventListener('change', function() {
       if (selectHorn.value === 'air-horn') {
          hornImg.src = 'assets/images/air-horn.svg';
@@ -30,6 +30,7 @@ function init() {
       const vol = volSlider.value;
       audioElement.volume = vol/100;
 
+      // display volume image for each selected volume 
       if (vol == 0) {
          volImg.src = 'assets/icons/volume-level-0.svg';
       }
@@ -50,6 +51,7 @@ function init() {
    playButton.addEventListener('click', function() {
       audioElement.play(); 
 
+      // if party horn is selected confetti pops out 
       if (selectHorn.value === 'party-horn') {
          new JSConfetti().addConfetti(); 
       }
